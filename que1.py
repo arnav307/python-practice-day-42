@@ -1,12 +1,17 @@
-def substring():
-    count=0
-    letters=[]
-    for i in s:
-        if i==s:
-            count+=1
-            letters.append(count)
-            return letters
-s="aabc"
-result=substring()
-print(*result)
+def substring(s):
+    letters = []  
+    max_length = 0  
+    start = 0 
 
+    for char in s:
+        if char in letters:
+            
+            start = letters.index(char) + 1
+            letters = letters[start:]  
+        letters.append(char)
+        max_length = max(max_length, len(letters))  
+    return max_length
+
+
+s = "abcabcbb"
+print(substring(s))  
